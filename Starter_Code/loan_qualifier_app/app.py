@@ -107,18 +107,26 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
             
 def save_qualifying_loans(qualified_loan_list):
     
-    print(qualified_loan_list)
-    questionary.confirm("Would you like to save your qualified loan list?").ask()
     
     
-    header = ["Lender Name"]
-    csvpath = questionary.text("Please enter a file path that you would you like to save your list of qualifing loans (.csv)").ask()    
+    if len(qualified_loan_list) > 0:
+        confirm = questionary.confirm("Would you like to save your qualified loan list?").ask()
+        if confirm:
+            header = ["Lender Name"]
+            csvpath = questionary.text("Please enter a file path that you would you like to save your list of qualifing loans (.csv)").ask()    
+            with open (csvpath,"w", newline='') as csvfile:
+                writer = csv.writer(csvfile)
+                writer.writerow(header)
+                for row in qualified_loan_list:
+                    writer.writerow([row])
+            print("Your file as been saved, thank you for using the Loan Qualifier Application!")
         
-    with open (csvpath,"w", newline='') as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerow(header)
-        for row in qualified_loan_list:
-            writer.writerow([row])
+        else:
+            print("Thank for for using the Loan Qualifier Application!")
+    
+    else: 
+        print("I'm sorry, there are no loans that you qualify for.")
+        sys.exit()
 
         
 
