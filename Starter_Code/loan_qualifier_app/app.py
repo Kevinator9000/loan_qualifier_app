@@ -103,21 +103,22 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
     bank_data_filtered.append
     return bank_data_filtered
 
-def save_csv(qualified_loan_list):
-    header = ["Loan Name"]
-    with open ("output_file.csv","w") as csvfile:
+
+            
+def save_qualifying_loans(qualified_loan_list):
+    
+    print(qualified_loan_list)
+    questionary.confirm("Would you like to save your qualified loan list?").ask()
+    
+    
+    header = ["Lender Name"]
+    csvpath = questionary.text("Please enter a file path that you would you like to save your list of qualifing loans (.csv)").ask()    
+        
+    with open (csvpath,"w", newline='') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(header)
         for row in qualified_loan_list:
             writer.writerow([row])
-            
-#def save_qualifying_loans(qualifying_loans):
-   # """Saves the qualifying loans to a CSV file.
-
-   # Args:
-   #     qualifying_loans (list of lists): The qualifying bank loans.
-   # """
-    # @TODO: Complete the usability dialog for savings the CSV Files.
 
         
 
@@ -143,7 +144,7 @@ def run():
         qualified_loan_list.append(loan_name)
 
     # Save qualifying loans
-    save_csv(qualified_loan_list)
+    save_qualifying_loans(qualified_loan_list)
 
 if __name__ == "__main__":
     fire.Fire(run)
