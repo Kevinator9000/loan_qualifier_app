@@ -84,15 +84,15 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
 
     """
 
-    # Calculate the monthly debt ratio
+    # Calculate the monthly debt ratio.
     monthly_debt_ratio = calculate_monthly_debt_ratio(debt, income)
     print(f"The monthly debt to income ratio is {monthly_debt_ratio:.02f}")
 
-    # Calculate loan to value ratio
+    # Calculate loan to value ratio.
     loan_to_value_ratio = calculate_loan_to_value_ratio(loan, home_value)
     print(f"The loan to value ratio is {loan_to_value_ratio:.02f}.")
 
-    # Run qualification filters
+    # Run qualification filters.
     bank_data_filtered = filter_max_loan_size(loan, bank_data)
     bank_data_filtered = filter_credit_score(credit_score, bank_data_filtered)
     bank_data_filtered = filter_debt_to_income(monthly_debt_ratio, bank_data_filtered)
@@ -100,32 +100,43 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
 
     print(f"Found {len(bank_data_filtered)} qualifying loans")
 
-    bank_data_filtered.append
+    
     return bank_data_filtered
 
 
             
 def save_qualifying_loans(qualified_loan_list):
+    """Prompts the user to confirm a save.  Then, saves the qualifying loans to a CSV file.
+    Args:
+        qualifying_loan_list (list of lists): The qualifying bank loans.
+    """
+    # @TODO: Complete the usability dialog for savings the CSV Files.
     
-    
-    
-    if len(qualified_loan_list) > 0:
+    if len(qualified_loan_list) > 0: 
+        # Users must have at least one qualified lender.
+        
         confirm = questionary.confirm("Would you like to save your qualified loan list?").ask()
-        if confirm:
+           # Gives user a yes/no prompt to save the list as a csv file.
+           # confirm = True if user selects yes and saves the file. 
+        
+        if confirm: # Confirm = True.
             header = ["Lender Name"]
             csvpath = questionary.text("Please enter a file path that you would you like to save your list of qualifing loans (.csv)").ask()    
+                # Asks the user where they would like to save their .csv file.
+            
             with open (csvpath,"w", newline='') as csvfile:
                 writer = csv.writer(csvfile)
-                writer.writerow(header)
+                writer.writerow(header) # Writes header row.
                 for row in qualified_loan_list:
-                    writer.writerow([row])
+                    writer.writerow([row]) # Writes unique qualified lender names.
             print("Your file as been saved, thank you for using the Loan Qualifier Application!")
-        
-        else:
-            print("Thank for for using the Loan Qualifier Application!")
-    
+                # Message sent to users after successfully saving the .csv file.
+            sys.exit()
+        else: # confirm = False, the user selected 'no'.
+            print("Thank for for using the  Loan Qualifier Application!")    
     else: 
         print("I'm sorry, there are no loans that you qualify for.")
+            # Message sent to users with no qualifying loans.
         sys.exit()
 
         
@@ -134,19 +145,20 @@ def save_qualifying_loans(qualified_loan_list):
 def run():
     """The main function for running the script."""
 
-    # Load the latest Bank data
+    # Load the latest Bank data.
     bank_data = load_bank_data()
 
-    # Get the applicant's information
+    # Get the applicant's information.
     credit_score, debt, income, loan_amount, home_value = get_applicant_info()
 
     # Find qualifying loans
     qualifying_loans = find_qualifying_loans(
         bank_data, credit_score, debt, income, loan_amount, home_value
     )
-    
+    # Create list of lender names that each unique user qualifies for.
     qualified_loan_list = []
     
+    # Sends all qualified lender names to qualified_loan_list.
     for loan in qualifying_loans:
         loan_name = loan[0]
         qualified_loan_list.append(loan_name)
