@@ -7,22 +7,23 @@ The Loan Qualifier Application adds qualifying features to a loan analyzer progr
 ## Technologies
 
 This program uses Python 3.9 with the following libraries:
-Questionary
-Pathlib
-Fire
-csv
+Questionary,
+Pathlib,
+Fire,
+csv,
 sys
 
 ---
 
 ## Installation Guide
 
-Clone the loan_qualifier_application respository (https://github.com/Kevinator9000/loan_qualifier_app) to your local respository.
+Clone the loan_qualifier_application respository (https://github.com/Kevinator9000/loan_qualifier_app) to your own local respository.
 
 ---
 
 ## Usage
-
+First, you will be prompted for the file path in order to load the bank's data:
+![Test](Screenshots\step_1.PNG)
 ---
 
 ## Contributors
