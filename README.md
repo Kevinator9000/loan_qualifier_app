@@ -49,7 +49,7 @@ If the user did not qualify for any loans the program will send this message and
 
 If you answer no, then the program sends this message and closes.
 
-![](./images/nosave.PNG)
+![](./images/notsaved.PNG)
 
 
 5: If you answer yes, the program then prompts you to input a .csv file location for your new Qualified Loans list.
