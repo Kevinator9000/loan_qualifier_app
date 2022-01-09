@@ -1,0 +1,50 @@
+   16  git status
+   17  git add README.md 
+   18  git commit -m "Trying to fix image in README"
+   19  git push
+   20  git status
+   21  git add screenshots/notqualified.PNG 
+   22  git add screenshots/Nosave.PNG 
+   23  git add screenshots/step1.PNG 
+   24  git add screenshots/step2.PNG 
+   25  git add screenshots/step3
+   26  git add screenshots/step3.PNG 
+   27  git status
+   28  git add README.md 
+   29  git commit -m "Renamed images, still trying to fix README image"
+   30  git status
+   31  git push
+   32  git status
+   33  git add README.md 
+   34  git add images/
+   35  ls
+   36  git status
+   37  git commit -m "Still trying to fix README"
+   38  git push
+   39  ls
+   40  git status
+   41  git add README.md 
+   42  git add images/save.PNG 
+   43  git add images/yessave.PNG 
+   44  git status
+   45  git commit -m "Added all screenshots to README, renamed screenshots"
+   46  git push
+   47  git status
+   48  git add README.md 
+   49  git commit -m "Finishing touches on README images"
+   50  git push
+   51  git status
+   52  git add README.md 
+   53  git commit -m "Attempt to fix final photo in README"
+   54  git push
+   55  git status
+   56  git add images/notsaved.PNG 
+   57  git status
+   58  git status
+   59  git add README.md 
+   60  git status
+   61  git commit -m "Attempt at fixing final photo in readme"
+   62  git push
+   63  git status
+   64  git add README.md 
+   65  history 50 > terminal_history.txt
