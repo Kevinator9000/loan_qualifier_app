@@ -23,7 +23,11 @@ Clone the loan_qualifier_application respository (https://github.com/Kevinator90
 
 ## Usage
 First, you will be prompted for the file path in order to load the bank's data:
-![](./screenshots/step_1.png)
+
+![Image info](step1.png)
+
+
+
 ---
 
 ## Contributors
