@@ -22,17 +22,17 @@ Clone the loan_qualifier_application respository (https://github.com/Kevinator90
 ---
 
 ## Usage
-1: You will be prompted for the file path in order to load the bank's data, for now use the path `data/daily_rate_sheet.csv`.
+1: You will be prompted to input the file path in order to load the bank's data, for now use the path `data/daily_rate_sheet.csv`.
 
 ![](./images/step1.PNG)
 
 
-2: You will be asked to input your: Credit Score, Monthly Debt, Total Monthly Income, Desired Loan Amount, and lastly your Home Value.
+2: You will be asked to input your: Credit Score, Monthly Debt, Total Monthly Income, Desired Loan Amount, and lastly Home Value.
 
 ![](./images/step2.PNG)
 
 
-3: This information is passed through multiple functions which filter: Credit Score, Debt to Income Ratio, Loan to Value Ratio, and Maximum Loan Size. After the program calculates your information it will display your Monthly Debt to Income Ratio, Loan to Value Ratio, and return the total number of banks that you have qualified for.
+3: This information is passed through multiple functions which filter your: Credit Score, Debt to Income Ratio, Loan to Value Ratio, and Maximum Loan Size. After the program calculates your information it will display your Monthly Debt to Income Ratio, Loan to Value Ratio, and return the total number of loans that you have qualified for.
 
 ![](./images/step3.PNG)
 
